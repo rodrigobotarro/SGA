@@ -1,0 +1,42 @@
+<app-cadastrar [showDetalhes]="showDetalhes" [aeronaveModel]="aeronaveModel" (atualizarAeronaves)="atualizaAeronaves()"
+  (ocultarDetalhesAeronave)="ocultarDetalhesAeronave()">
+</app-cadastrar>
+<app-date-semana [naoVendidos]="naoVendidos" [aeronavesSemana]="aeronavesSemana" [decadas]="decadas"
+  [todasAeronaves]="todasAeronaves" (aeronavesLista)="atualizaListaAeronaves($event)">
+</app-date-semana>
+
+<table class="table table-striped table-light">
+  <thead>
+    <tr>
+      <th class="col-1">ID</th>
+      <th class="col-4">Marca</th>
+      <th class="col-4">Modelo</th>
+      <th class="col-1">Ano</th>
+      <th class="col-1">Vendido</th>
+      <th class="col-1 fa fa-trash-o" title="Apagar"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr #f *ngFor="let aeronave of aeronaves; let index = index">
+      <td class="col-1">
+        <label (click)="exibirDetalhesAeronave(aeronave)" class="input-label link btn">{{ aeronave.id }}</label>
+      </td>
+      <td class="col-4">
+        <input disabled [(ngModel)]="aeronave.marca" name="aeronave.marca" type="text" class="input-label" />
+      </td>
+      <td class="col-4">
+        <input disabled [(ngModel)]="aeronave.nome" name="aeronave.nome" type="text" class="input-label" />
+      </td>
+      <td class="col-1">
+        <input disabled [(ngModel)]="aeronave.ano" name="aeronave.ano" type="text" class="input-label" />
+      </td>
+      <td class="col-1" align="center">
+        <input disabled [(ngModel)]="aeronave.vendido" name="aeronave.vendido" type="checkbox" class="input-label" />
+      </td>
+      <td class="col-1">
+        <button title="Deletar" (click)="deleta(aeronave.id)" class="fa fa-trash-o but-small"></button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<app-marcas [marcas]="marcas"></app-marcas>

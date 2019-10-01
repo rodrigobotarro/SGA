@@ -1,0 +1,27 @@
+.input-label {
+  background: rgba(0, 0, 0, 0);
+  border: none;
+  cursor: pointer;
+}
+
+.input-label-lg {
+  background: rgba(0, 0, 0, 0);
+  border: none;
+  cursor: pointer;
+  font-size: large;
+  font-weight: bold;
+}
+
+.but-small {
+  padding: 0;
+  border: none;
+  background: none;
+  color: blue;
+}
+
+.link {
+    color: blue;
+    border: none;
+    cursor: pointer;
+    padding: 0px;
+}

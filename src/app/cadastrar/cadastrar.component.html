@@ -1,0 +1,125 @@
+<div class="container col-6 cadastro">
+  <!-- Cadastrando Aeronave -->
+  <div *ngIf="!showDetalhes">
+    <h1>
+      Cadastrar Aeronave
+    </h1>
+    <form #formulario="ngForm" (ngSubmit)="criarAeronave(formulario)">
+      <div class="form-group">
+        <label title="Nome">Nome:</label><br>
+        <input title="Nome da Aeronave" id="name" type="text" placeholder="Nome da Aeronave" class="form-control"
+          name="aeronaveModel.nome'" [(ngModel)]="aeronaveModel.nome" #nome="ngModel" required />
+        <div *ngIf="!nome.valid && nome.touched" class="alert alert-danger" role="alert">
+          <small>O atributo nome não pode ficar em branco</small>
+        </div>
+      </div>
+      <div class="form-group">
+        <label title="Marca">Marca:</label><br>
+        <select title="Marca da Aeronave" class="form-control" name="aeronaveModel.marca"
+          [(ngModel)]="aeronaveModel.marca" #marca="ngModel" required>
+          <option *ngFor="let marca of marcas" placeholder="Nome do Fabricante" [value]="marca">{{ marca }}</option>
+        </select>
+        <div *ngIf="!marca.valid && marca.touched" class="alert alert-danger" role="alert">
+          <small>Escolha uma marca</small>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col">
+          <label title="Ano">Ano:</label><br>
+          <input title="Ano da Aeronave" type="text" placeholder="Ano Fabricado" class="form-control"
+            name="aeronaveModel.ano" [(ngModel)]="aeronaveModel.ano" #ano="ngModel" required />
+          <div *ngIf="!ano.valid && ano.touched" class="alert alert-danger" role="alert">
+            <small>Ano em branco</small>
+          </div>
+        </div>
+        <div class="form-group col">
+          <label title="Vendido">Vendido:</label><br>
+          <select title="Disponibilidade da Aeronave" class="form-control" name="aeronaveModel.vendido"
+            [(ngModel)]="aeronaveModel.vendido" #vendido="ngModel" required>
+            <option *ngFor="let vStatus of vendidoStatus" placeholder="Disponibilidade" [value]="vStatus.valor">
+              {{ vStatus.status }}</option>
+          </select>
+          <div *ngIf="!vendido.valid && vendido.touched" class="alert alert-danger" role="alert">
+            <small>Atributo necessário</small>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <button id="cancelar" type="button" (click)="cancelar(formulario)" title="Cancelar"
+            class="btn btn-warning pull-right">Cancelar</button>
+        </div>
+        <div clas="col">
+          <button id="gravar" type="submit" title="Salvar Aeronave" class="btn btn-primary pull-right"
+            [disabled]="formulario.invalid">Gravar</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <!-- Atualizando Aeronave -->
+  <div *ngIf="showDetalhes">
+    <h1>
+      Atualizar Aeronave
+    </h1>
+    <form #formulario="ngForm" (ngSubmit)="atualizarAeronave(formulario)">
+      <div class="form-group">
+        <label title="Nome">Nome:</label><br>
+        <input title="Nome da Aeronave" id="name" type="text" placeholder="Nome da Aeronave" class="form-control"
+          name="nome" [(ngModel)]="aeronaveModel.nome" #nome="ngModel" required />
+        <div *ngIf="!nome.valid && nome.touched" class="alert alert-danger" role="alert">
+          <small>O atributo nome não pode ficar em branco</small>
+        </div>
+      </div>
+      <div class="form-group">
+        <label title="Marca">Marca:</label><br>
+        <select title="Marca da Aeronave" class="form-control" name="marca" [(ngModel)]="aeronaveModel.marca"
+          #marca="ngModel" required>
+          <option *ngFor="let marca of marcas" placeholder="Nome do Fabricante" [value]="marca">{{ marca }}</option>
+        </select>
+        <div *ngIf="!marca.valid && marca.touched" class="alert alert-danger" role="alert">
+          <small>O atributo nome não pode ficar em branco</small>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col">
+          <label title="Ano">Ano:</label><br>
+          <input title="Ano da Aeronave" type="text" placeholder="Ano Fabricado" class="form-control" name="ano"
+            [(ngModel)]="aeronaveModel.ano" #ano="ngModel" required />
+          <div *ngIf="!ano.valid && ano.touched" class="alert alert-danger" role="alert">
+            <small>O atributo nome não pode ficar em branco</small>
+          </div>
+        </div>
+        <div class="form-group col">
+          <label title="Vendido">Vendido:</label><br>
+          <select title="Disponibilidade da Aeronave" class="form-control" name="vendido"
+            [(ngModel)]="aeronaveModel.vendido" #vendido="ngModel" required>
+            <option *ngFor="let vStatus of vendidoStatus" placeholder="Disponibilidade" [value]="vStatus.valor">
+              {{ vStatus.status }}</option>
+          </select>
+          <div *ngIf="!vendido.valid && vendido.touched" class="alert alert-danger" role="alert">
+            <small>O atributo nome não pode ficar em branco</small>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label title="descricao">Descricao:</label><br>
+        <textarea title="descricao da Aeronave" id="name" type="text" placeholder="detalhes da Aeronave"
+          class="form-control" name="descricao'" [(ngModel)]="aeronaveModel.descricao" #descricao="ngModel"></textarea>
+        <div *ngIf="descricao.touched && descricao.value == ''" class="alert alert-warning" role="alert">
+          <small>Recomenda-se preencher uma descrição.</small>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <button id="cancelar" type="button" (click)="cancelar(formulario)" title="Cancelar"
+            class="btn btn-warning pull-right">Cancelar</button>
+        </div>
+        <div clas="col">
+          <button id="gravar" type="submit" title="Salvar Aeronave" class="btn btn-primary pull-right"
+            [disabled]="formulario.invalid">Gravar</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

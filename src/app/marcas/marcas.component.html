@@ -1,0 +1,12 @@
+<div class="container row">
+  <div class="col">
+    <div *ngFor="let marca of marcas" class="row">
+      <div class="col-2">
+        <label type="text">{{ marca.marca }}:</label>
+      </div>   
+      <div>  
+        <label align="left" type="text">------ {{ marca.count }}</label>
+      </div>
+    </div>
+  </div>
+</div>

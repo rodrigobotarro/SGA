@@ -1,0 +1,21 @@
+<div class="container">
+  <div class=" row">
+    <div class="col-2">      
+    </div>
+    <div class="col-4">
+      <label *ngIf="naoVendidos.length != 0" type="text" (click)="aeroNaoVendidas()" class="link btn">Não Vendidas
+        {{ naoVendidos.length }}</label><br>
+      <label *ngIf="aeronavesSemana.length != 0" type="text" (click)="aeroDaSemana()" class="link btn">Essa Semana:
+        {{ aeronavesSemana.length }}</label><br>
+      <label *ngIf="todasAeronaves.length != 0" type="text" (click)="showTodasAeronaves()" class="link btn">Todas
+        {{todasAeronaves.length}} Aeronaves</label>
+    </div>
+    <div class="col-4">
+      <table>
+        <tr *ngFor="let decada of decadas" class="pull-right">
+          <label type="text">{{ decada.decada }}: {{ decada.count }} aeronave(s)</label>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
