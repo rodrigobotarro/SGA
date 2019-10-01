@@ -20,16 +20,9 @@ Copie os arquivos gerados, navegue até a pasta "webapps" dentro do seu servidor
 Seu serviço estará operacional
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
+* [Angular](https://angular.io) - Framework web usado para gerar paginas dinâmicas. 
 * [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+* [Eclipse](https://www.eclipse.org) - IDE usada para codificar.
 
 ## Authors
 
